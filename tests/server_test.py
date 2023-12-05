@@ -1,4 +1,4 @@
-from development import app # Flask instance of the API
+from main import app # Flask instance of the API
 
 def test_index_route():
     response = app.test_client().get('/')
