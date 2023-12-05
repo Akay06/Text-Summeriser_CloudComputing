@@ -24,7 +24,8 @@ OPENAI_API_KEY_PATH = "DEV_OPENAI_API_KEY_PATH"
 def getOpenaiSecret():
     client = secretmanager.SecretManagerServiceClient()
     path = os.environ.get(OPENAI_API_KEY_PATH)
-    print("projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1"==path)
+    print(path)
+    print('projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1'==path)
     return client.access_secret_version(request={"name": path}).payload.data.decode("UTF-8")
 
 openai.api_key = getOpenaiSecret()
