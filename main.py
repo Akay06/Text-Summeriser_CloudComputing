@@ -18,7 +18,7 @@ summaries = {}
 
 logging.basicConfig(level=logging.INFO)
 
-BUCKET = 'PROD_BUCKET_NAME'
+BUCKET_NAME = 'PROD_BUCKET_NAME'
 
 def getOpenaiSecret():
     client = secretmanager.SecretManagerServiceClient()
@@ -29,7 +29,7 @@ MAX_TOKENS = 4000
 
 # Configure Google Cloud Storage
 storage_client = storage.Client()
-bucket_name = os.environ.get(BUCKET)  # Add the bucket name here 
+bucket_name = os.environ.get(BUCKET_NAME)  # Add the bucket name here 
 bucket = storage_client.bucket(bucket_name)
 
 def upload_to_gcs(file):
