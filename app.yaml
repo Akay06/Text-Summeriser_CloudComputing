@@ -14,7 +14,7 @@
 service: textsummarizerdev
 
 env_variables:
-  BUCKET_NAME: "text-summarizer-pdf-objects-dev"
+  DEV_BUCKET_NAME: "text-summarizer-pdf-objects-dev"
 
 runtime: python39
 
