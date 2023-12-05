@@ -15,7 +15,7 @@ service: textsummarizerdev
 
 env_variables:
   DEV_BUCKET_NAME: "text-summarizer-pdf-objects-dev"
-  DEV_OPENAI_KEY_PATH: "projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1"
+  DEV_OPENAI_API_KEY_PATH: "projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1"
 
 runtime: python39
 
