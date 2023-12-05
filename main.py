@@ -19,15 +19,10 @@ summaries = {}
 logging.basicConfig(level=logging.INFO)
 
 BUCKET_NAME = "DEV_BUCKET_NAME"
-OPENAI_API_KEY_PATH = "DEV_OPENAI_API_KEY_PATH"
 
 def getOpenaiSecret():
     client = secretmanager.SecretManagerServiceClient()
-    path = os.environ.get(OPENAI_API_KEY_PATH, default = "default")
-    bucket_name = os.environ.get(BUCKET_NAME)
-    print(path, bucket_name)
-    print('projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1'==path)
-    return client.access_secret_version(request={"name": path}).payload.data.decode("UTF-8")
+    return client.access_secret_version(request={"name": "projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1"}).payload.data.decode("UTF-8")
 
 openai.api_key = getOpenaiSecret()
 MAX_TOKENS = 4000
