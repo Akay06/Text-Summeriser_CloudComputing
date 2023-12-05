@@ -18,18 +18,19 @@ summaries = {}
 
 logging.basicConfig(level=logging.INFO)
 
-BUCKET = 'DEV_BUCKET_NAME'
+BUCKET_NAME = "DEV_BUCKET_NAME"
+OPEN_API_KEY_PATH = "DEV_OPEN_API_KEY_PATH"
 
 def getOpenaiSecret():
     client = secretmanager.SecretManagerServiceClient()
-    return client.access_secret_version(request={"name": "projects/1018379038222/secrets/OPENAI_API_KEY_DEV/versions/1"}).payload.data.decode("UTF-8")
+    return client.access_secret_version(request={"name": OPEN_API_KEY_PATH}).payload.data.decode("UTF-8")
 
 openai.api_key = getOpenaiSecret()
 MAX_TOKENS = 4000
 
 # Configure Google Cloud Storage
 storage_client = storage.Client()
-bucket_name = os.environ.get(BUCKET)  # Add the bucket name here 
+bucket_name = os.environ.get(BUCKET_NAME)  # Add the bucket name here 
 bucket = storage_client.bucket(bucket_name)
 
 def upload_to_gcs(file):
