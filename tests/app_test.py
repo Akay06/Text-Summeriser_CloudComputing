@@ -6,7 +6,6 @@ import requests
 BASE_URL = "https://ultra-thought-397322.uc.r.appspot.com/"
 
 
-
 @pytest.fixture
 def client():
     with requests.Session() as client:
