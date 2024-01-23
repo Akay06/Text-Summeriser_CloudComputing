@@ -29,7 +29,7 @@ To use the Text Summarization Web App locally:
 1. Enter text directly into the provided field.
 2. Or, upload a PDF file for summarization.
 3. Click the "Summarize" button to generate a summary.
-4. View the summarized text in the result page.
+4. View the summarized text on the result page.
 
 
 
@@ -44,4 +44,4 @@ This project utilizes:
 
 ## Contact
 
-For any inquiries or feedback, please reach out to [Vineet Kurapati ](mailto:vxk4505@mavs.uta.edu).[Praneeth Bonagiri](pxb3572@mavs.uta.edu)
+For any inquiries or feedback, please reach out to [Kannappan Aravind](mailto:aravindraghavan98@gmail.com)
