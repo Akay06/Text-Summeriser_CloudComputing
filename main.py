@@ -85,8 +85,7 @@ def upload_and_summarize():
 def show_summary(summary_id):
     logging.info('Inside ' + show_summary.__name__+ '()')
     try:
-        summary = summaries.get(summary_id)
-        if summary:
+        if summary := summaries.get(summary_id):
             return render_template('summary1.html', summary=summary)
         else:
             return "Summary not found."
