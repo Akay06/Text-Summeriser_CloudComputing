@@ -41,7 +41,7 @@ def upload_to_gcs(file):
 
 @app.route('/')
 def index():
-    logging.info('Inside ' + index.__name__ + '()')
+    logging.info("Inside %s()", index.__name__)
     try:
         return render_template('index1.html')
     except ValueError:
@@ -49,7 +49,7 @@ def index():
 
 @app.route('/api/upload_and_summarize', methods=['POST'])
 def upload_and_summarize():
-    logging.info('Inside ' + upload_and_summarize.__name__+ '()')
+    logging.info("Inside %s()", upload_and_summarize.__name__)
     try:
         if 'file' in request.files:
             pdf_file = request.files['file']
@@ -83,7 +83,7 @@ def upload_and_summarize():
 
 @app.route('/summary/<int:summary_id>')
 def show_summary(summary_id):
-    logging.info('Inside ' + show_summary.__name__+ '()')
+    logging.info("Inside %s()", show_summary.__name__)
     try:
         summary = summaries.get(summary_id)
         if summary:
@@ -94,7 +94,7 @@ def show_summary(summary_id):
         logging.exception(show_summary.__name__ + '(): ' + 'summary_id ' + summary_id + ' ' + ValueError)
 
 def extract_text_from_pdf(pdf_file):
-    logging.info('Inside ' + extract_text_from_pdf.__name__+ '()')
+    logging.info("Inside %s()", extract_text_from_pdf.__name__)
     try:
         pdf_reader = PdfReader(pdf_file)
         text = ''
@@ -106,7 +106,7 @@ def extract_text_from_pdf(pdf_file):
         logging.exception(extract_text_from_pdf.__name__ + '(): ' + ValueError)
 
 def generate_summary(content):
-    logging.info('Inside ' + generate_summary.__name__+ '()')
+    logging.info("Inside %s()", generate_summary.__name__)
     try:
         chunks = [content[i:i + MAX_TOKENS] for i in range(0, len(content), MAX_TOKENS)]
         summaries = []
